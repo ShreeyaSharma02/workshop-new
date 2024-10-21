@@ -4,17 +4,18 @@
 #include "GameEntity.h"
 #include "Explosion.h"
 
-// Mine class inheriting from GameEntity
 class Mine : public GameEntity {
 public:
-    // Constructor that sets position and type to MineType
-    Mine(int x, int y)
-        : GameEntity(x, y, GameEntityType::MineType) {}
+    Mine(int x, int y) : GameEntity(x, y, GameEntityType::MineType) {}
 
-    // Explode function returns an Explosion object
+    // Explode and return an Explosion object
     Explosion explode() {
-        setType(GameEntityType::NoneType);
-        return Explosion(std::get<0>(getPos()), std::get<1>(getPos()));
+        setType(GameEntityType::NoneType);  // Mark mine as exploded
+        return Explosion(std::get<0>(position), std::get<1>(position));
+    }
+
+    void setType(GameEntityType newType) {
+        type = newType;
     }
 };
 

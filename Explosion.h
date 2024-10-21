@@ -1,20 +1,16 @@
 #ifndef EXPLOSION_H
 #define EXPLOSION_H
 
-#include "GameEntity.h"
 #include "Effect.h"
+#include "GameEntity.h"
 
-// Explosion class inheriting from GameEntity and Effect
 class Explosion : public GameEntity, public Effect {
 public:
-    // Constructor that sets position and type to ExplosionType
-    Explosion(int x, int y)
-        : GameEntity(x, y, GameEntityType::ExplosionType) {}
+    Explosion(int x, int y) : GameEntity(x, y, GameEntityType::ExplosionType) {}
 
-    // Apply effect, destroying the entity
+    // Apply explosion effect to another GameEntity (e.g., Ship)
     void apply(GameEntity& entity) override {
-        entity.setPos(-1, -1);
-        entity.setType(GameEntityType::NoneType);
+        entity = GameEntity(-1, -1, GameEntityType::NoneType);  // Set entity as destroyed
     }
 };
 

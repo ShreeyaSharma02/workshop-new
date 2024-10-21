@@ -5,8 +5,7 @@
 
 class Effect {
 public:
-    // Pure virtual function to apply effect on a GameEntity
-    virtual void apply(GameEntity& entity) = 0;
+    virtual void apply(GameEntity& entity) = 0;  // Pure virtual function
 };
 
 #endif // EFFECT_H
