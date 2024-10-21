@@ -76,8 +76,7 @@ public:
             }
 
             if (allShipsDestroyed) {
-                std::cout << "All ships destroyed. Game over!\n";
-                break;
+                return;
             }
         }
     }
